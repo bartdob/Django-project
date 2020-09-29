@@ -5,10 +5,12 @@ boto3==1.15.6
 botocore==1.18.6
 certifi==2020.6.20
 chardet==3.0.4
+dj-database-url==0.5.0
 Django==3.1
 django-bootstrap4==2.2.0
 django-crispy-forms==1.9.2
 django-developer-panel==0.1.2
+django-on-heroku==1.0.1
 django-storages==1.10.1
 gunicorn==20.0.4
 idna==2.10
@@ -18,6 +20,7 @@ jmespath==0.10.0
 lazy-object-proxy==1.4.3
 mccabe==0.6.1
 Pillow==7.2.0
+psycopg2-binary==2.8.6
 pylint==2.6.0
 python-dateutil==2.8.1
 pytz==2020.1
@@ -29,5 +32,6 @@ sqlparse==0.3.1
 toml==0.10.1
 typed-ast==1.4.1
 urllib3==1.25.10
+whitenoise==5.2.0
 wrapt==1.12.1
 zipp==3.1.0
