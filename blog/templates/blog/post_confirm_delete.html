@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Registerr</h1>
+    <div class="content-section">
+        <form method="post">
+            {% csrf_token %}
+            <fieldset>
+                <legend class="border-bottom mb-4">
+                    Post - deletePost
+                </legend>
+                <h1>Delete Post ? "{{object.title}}" </h1>
+                <div class="form-group">
+                    <button class="btn btn-danger" type="submit"> Yes, deletePost </button>
+                    <a href="{% url 'post-detail' object.id %}">
+                        <button class="btn btn-info" > No </button>
+                    </a>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+{% endblock content%}

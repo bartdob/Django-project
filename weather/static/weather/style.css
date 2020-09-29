@@ -1,0 +1,115 @@
+#mainContainer {
+    text-align: center;
+    align-items: center;
+    /* margin-right: auto;
+    margin-left: auto; */
+}
+
+.container{
+    text-align: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#box {
+    display: block;
+    /* margin-right: auto;
+    margin-left: auto; */
+    border: 5px solid darkseagreen;
+    padding: 5px;
+    margin-top: 10px;
+    background-color: khaki;
+    float: left;
+    margin-left: 50px;
+}
+body
+{
+    background-color: black;
+}
+
+.nav {
+    font-size: x-large;
+    color: lavender;
+    text-align: center;
+    padding: 10px;
+    height: 100px;
+    -webkit-text-stroke: 1px grey;
+}
+
+input[type=text] {
+    width: 15%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-bottom: grey 1px solid;
+    box-sizing: border-box;
+  }
+
+  input[type=submit]{
+	box-shadow: 0px 10px 14px -7px #276873;
+	background:linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+	background-color:#599bb3;
+	border-radius:8px;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:13px 32px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #3d768a;
+  }
+
+  nav{
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(8,8,109,1) 2%, rgba(9,9,121,1) 11%, rgba(0,212,255,1) 37%);
+      border: 2px solid black;
+
+
+  }
+  .is-danger{
+      color: white;
+      background-color: tomato;
+      display: block;
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .is-success{
+      color: white;
+      background-color: turquoise;
+      display: block;
+      border: 1px solid black;
+      width: 300px;
+      margin-right: auto;
+      margin-left: auto;
+  }
+
+  .delete {
+	box-shadow: 3px 4px 0px 0px #8a2a21;
+	background:linear-gradient(to bottom, #c62d1f 5%, #f24437 100%);
+	background-color:#c62d1f;
+	border-radius:18px;
+	border:1px solid #d02718;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	padding:7px 25px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #810e05;
+}
+.delete:hover {
+	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
+	background-color:#f24437;
+}
+.delete:active {
+	position:relative;
+	top:1px;
+}
+
+button{
+    background-color:#c62d1f;
+}

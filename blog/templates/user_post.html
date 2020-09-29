@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Post of {{ view.kwargs.username }} ({{page_obj.paginator.count}})</h1>
+
+    {% for post in posts%}
+
+    <article class="media content-section">
+      <img class="rounded-circle" style="max-height: 100;" src="{{ post.author.profile.image.url }}" alt="">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="{% url 'user-posts' post.author.username %}">{{ post.author }}</a>
+            <small class="text-muted">{{ post.date|date:"F d - Y" }}</small>
+          </div>
+          <h2><a class="article-title ml-2" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+          <p class="article-content">{{ post.content }}</p>
+        </div>
+      </article>
+
+      {% endfor %}
+      <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock content%}

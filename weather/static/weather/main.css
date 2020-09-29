@@ -1,0 +1,16 @@
+#main{
+    border: 1px solid black;
+    background-color: darkgrey;
+    box-shadow: teal;
+    border-radius: 2em;
+}
+
+#box{
+    border: white 3px solid;
+    border-radius: 3em;
+    box-shadow: whitesmoke;
+}
+
+body{
+    background-color: darkgoldenrod;
+}

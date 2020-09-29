@@ -1,0 +1,52 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'weather/style.css' %}">
+</head>
+
+
+<body>
+    <nav class="nav">
+        <h1>What is the weather ?</h1>
+
+    </nav>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <!-- <input type="input" placeholder="City name"> -->
+        {{ form.name }}
+        <input type="submit" value="OK">
+        {% if message %}
+        <div class="notification {{ message_class }}">{{ message }}</div>
+        {% endif %}
+    </form>
+
+    <div class="container" id="mainContainer">
+    {% for city_weather in weather_data %}
+        <div class="container" id="box" style="width: 300px;">
+            <h1> {{ city_weather.city|capfirst }}</h1>
+            <div id="icon"><img id="wicon" src="http://openweathermap.org/img/w/{{city_weather.icon}}.png" alt="Weather icon"></div>
+            <span>{{ city_weather.temp }}° C</span>
+            <h1>{{ city_weather.description }}</h1>
+            <div class="delete">
+                <a style="text-decoration: none; color: black;" href="{% url 'deleteCity' city_weather.city %}">
+                    delete
+                </a>
+
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+    <footer class="footer">
+    </footer>
+</body>
+
+</html>
