@@ -2,13 +2,14 @@ from django.shortcuts import render, redirect
 import requests
 from .models import City
 from .forms import CityForm
+import os
 
 def main(request):
     return render (request, 'main.html')
 
 
 def index(request):
-    key = '9bb88af909d85a9aeff78756263783c7'
+    key = os.environ.get('WEATHER_API_KEY')
     url = 'https://api.openweathermap.org/data/2.5/weather?q={}&units=metric&APPID=9bb88af909d85a9aeff78756263783c7'
 
 
