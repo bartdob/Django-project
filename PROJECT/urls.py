@@ -32,7 +32,9 @@ urlpatterns = [
     path('password_reset_complete/', auth_views.PasswordResetCompleteView.as_view(template_name='password_reset_complete.html'), name='password_reset_complete'),
     path('blog/', include('blog.urls')),
     path('newuser/', user_views.newuser, name='newuser'),
+    path('covid/', include('covid.urls')),
     path('', include('weather.urls')),
+
 
 ]
 

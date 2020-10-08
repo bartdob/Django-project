@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     'blog',
     'users.apps.UsersConfig',
     'crispy_forms',
-    'storages'
+    'storages',
+    'covid',
 ]
 
 MIDDLEWARE = [
