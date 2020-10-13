@@ -1,0 +1,84 @@
+{% load static %}
+
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'todo.css' %}">
+    </head>
+        <body>
+
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a class="navbar-brand" href="{% url 'blog-home' %}">
+                  Todo
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                      <a class="nav-link" href="{% url 'blog-home' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">About</a>
+                    </li>
+
+                  </ul>
+                  <form class="form-inline my-2 my-lg-0">
+                    <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'main-page' %}">main page</a>
+                    {% if user.is_authenticated %}
+                    <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'logout' %}">logout</a>
+                    <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'profile' %}">profile</a>
+                    {% else %}
+                    <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'login' %}">login</a>
+                    <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'register' %}">register</a>
+                    {% endif %}
+
+                  </form>
+                </div>
+              </nav>
+
+            <div class="container border border-warning mt-2">
+                <div class="container mx-auto border border-warning mt-2 p-2 bg-dark">
+                    <p class="text-center text-white">TODO</p>
+                </div>
+
+            <ol>
+                {% for todo_item in all_items %}
+                <li class="ml-2">
+                    <div class="row bg-light mt-3 ml-2 w-50 border border-warning">
+                        <div class="col-10 mt-2">
+                            {{ todo_item.content }}
+                            {{todo_item.date}}
+                        </div>
+                        <div class="col-2 mt-2 text-right">
+                            <form action="/todo/deleteTodo/{{todo_item.id}}/"
+                                    method="POST">{% csrf_token %}
+                                    <button type="submit" value="del" class="bg-danger">
+                                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-trash" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                                        <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4L4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                      </svg>
+                                    </button>
+                                </form>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %}
+            </ol>
+                <div class="container mx-auto text-center mt-5">
+                    <form method="POST" action="addTodo/new/" class="form-inline text-center mt-2">{% csrf_token %}
+                        <input type="text" class="w-25 form-control" placeholder="add task" name="content">
+                        <button type="submit">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-plus-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm6.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
+                              </svg>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </body>
+
+</html>

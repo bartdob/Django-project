@@ -34,7 +34,6 @@
           </ul>
           <form class="form-inline my-2 my-lg-0">
             {% if user.is_authenticated %}
-            <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'post-create' %}">make a post</a>
             <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'logout' %}">logout</a>
             <a class="btn btn-outline-success my-2 my-sm-0" href="{% url 'profile' %}">profile</a>
             {% else %}
@@ -87,6 +86,14 @@
                   </div>
               </button>
           </div>
+          <div class="w-25 p-2 m-3" id="box">
+            <p>TODO</p>
+            <button class="btn btn-dark btn-lg">
+                <div>
+                    <a class="text-light text-decoration-none" href="{% url 'todo' %}">START</a>
+                </div>
+            </button>
+        </div>
         </div>
 
       </div>

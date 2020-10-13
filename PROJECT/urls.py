@@ -33,6 +33,8 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('newuser/', user_views.newuser, name='newuser'),
     path('covid/', include('covid.urls')),
+    path('calc/', include('calc.urls')),
+    path('todo/', include('todo.urls')),
     path('', include('weather.urls')),
 
 

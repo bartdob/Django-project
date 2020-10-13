@@ -50,6 +50,9 @@ INSTALLED_APPS = [
     'crispy_forms',
     'storages',
     'covid',
+    'calc',
+    'todo',
+    'django_truncate',
 ]
 
 MIDDLEWARE = [
