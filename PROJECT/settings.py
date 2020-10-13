@@ -51,7 +51,6 @@ INSTALLED_APPS = [
     'storages',
     'covid',
     'todo',
-    'django_truncate',
 ]
 
 MIDDLEWARE = [
