@@ -16,7 +16,6 @@ django-crispy-forms==1.9.2
 django-developer-panel==0.1.2
 django-on-heroku==1.0.1
 django-storages==1.10.1
-django-truncate==0.1
 et-xmlfile==1.0.1
 GetOldTweets3==0.0.11
 gunicorn==20.0.4
