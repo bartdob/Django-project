@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'storages',
     'covid',
     'todo',
+    'celery',
 ]
 
 MIDDLEWARE = [
@@ -139,7 +140,7 @@ MEDIA_URL = '/media/'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
-LOGIN_REDIRECT_URL = 'blog-home'
+LOGIN_REDIRECT_URL = 'main-page'
 LOGIN_URL = 'login'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
@@ -163,3 +164,5 @@ AWS_S3_REGION_NAME = 'eu-central-1' #change to your region
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 django_on_heroku.settings(locals())
+# CELERY
+CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')

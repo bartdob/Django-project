@@ -2,6 +2,13 @@ from django.shortcuts import render, redirect
 import requests
 from datetime import datetime, timedelta
 import time
+from django.contrib import messages
+from django.http import HttpResponseRedirect
+from .tasks import get_covid_data 
+from django.views.generic import UpdateView, ListView
+from django.views import View
+from .models import Data
+
 
 today = datetime.today()
 today_str = datetime.today().strftime('%Y-%m-%d')
@@ -10,7 +17,6 @@ today_day = (today.strftime('%y-%m-%d'))
 
 def main_covid(request):
     #--------------------------------------------TOTAL-------------------------------------------------
-    # key = '9bb88af909d85a9aeff78756263783c7'
     url = "https://covid-19-data.p.rapidapi.com/country"
 
     querystring = {"format":"json","name":"Poland","province":"Poland"}
@@ -73,3 +79,26 @@ def main_covid(request):
 
             }
     return render (request, 'covid/covid.html', context)
+
+def home(request):
+    context = {
+        'datas': Data.objects.all()
+    }
+    return render(request, 'cov.html', context)
+
+class CovidUpdateView(View):
+    def get(self, request, *args, **kwargs):
+        data = City.objects.all()
+        for city in cities:
+            get_covid_data.delay(city.name)
+
+        messages.add_message(request, messages.INFO,
+                            'covid update task started.')
+        return HttpResponseRedirect(reverse('cov'))
+
+class HomeView(ListView):
+    model = Data
+    template_name = 'cov.html'
+    context_object_name = 'datas'
+
+
