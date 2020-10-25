@@ -8,6 +8,7 @@ from celery.task.schedules import crontab
 from celery.decorators import periodic_task
 from celery import Celery
 from .models import Data
+from celery.schedules import crontab
 
 celery = Celery('tasks', broker='amqp://guest@localhost//') #!
 import os
@@ -31,14 +32,6 @@ def get_covid_data(): #------------------------------------------ONE DAY--------
 
     responseP = requests.get(urlP, headers=headers)
 
-    # if request.method == 'GET':
-    resp_dP = responseP.json()
-    today_new_deaths = resp_dP['dates'][today_str]['countries']['Poland']['today_new_deaths']
-    today_new_confirmed = resp_dP['dates'][today_str]['countries']['Poland']['today_new_confirmed']
-    today_new_recovered = resp_dP['dates'][today_str]['countries']['Poland']['today_new_recovered']
-    source = resp_dP['dates'][today_str]['countries']['Poland']['source']
-    api_date = resp_dP['dates'][today_str]['info']['date_generation']
-
     #--------------------------------------------TOTAL-------------------------------------------------
     url = "https://covid-19-data.p.rapidapi.com/country"
 
@@ -52,30 +45,39 @@ def get_covid_data(): #------------------------------------------ONE DAY--------
     response = requests.request("GET", url, headers=headers, params=querystring)
 
 
+    # if request.method == 'GET':
+    resp_dP = responseP.json()
+    today_new_deaths = resp_dP['dates'][today_str]['countries']['Poland']['today_new_deaths']
+    today_new_confirmed = resp_dP['dates'][today_str]['countries']['Poland']['today_new_confirmed']
+    today_new_recovered = resp_dP['dates'][today_str]['countries']['Poland']['today_new_recovered']
+    source = resp_dP['dates'][today_str]['countries']['Poland']['source']
+    api_date = resp_dP['dates'][today_str]['info']['date_generation']
+
+    # ----------------------TOTAL
+
+    resp_d = response.json()
+    confirmed = resp_d[0]['confirmed']
+    recovered = resp_d[0]['recovered']
+    critical = resp_d[0]['critical']
+    deaths = resp_d[0]['deaths']
+
+
 
 
     today_str, created = Data.objects.update_or_create(date=today_str, defaults={
-            # 'date': api_date,
-            # 'source': source,
             'title' : '0',
             'date' : today_str,
-            'critical': 0,
-            'deaths': 0,
+            'critical': critical,
+            'deaths': deaths,
+            'confirmed': confirmed,
+            'recovered': recovered,
             'today_new_deaths': today_new_deaths,
             'today_new_confirmed': today_new_confirmed,
-            # 'today_new_recovered': today_new_recovered
     })
 
 
-# @periodic_task(run_every=timedelta(seconds=30))
-# # def get_all_covid_data():
-#     # for data in Data.objects.all():
-#     get_covid_data
-#     print("-----------------------------------COVID--------------------")
-
-
-@periodic_task(run_every=timedelta(seconds=30))
+@periodic_task(crontab(minute=0, hour='15'))
 def every_30_seconds():
-    print("Running periodic task!")
+    # print("Running periodic task!")
     get_covid_data()
-    print("-----------------------------------COVID--------------------")
+    # print("-----------------------------------COVID--------------------")

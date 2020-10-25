@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 import time
 from django.contrib import messages
 from django.http import HttpResponseRedirect
-from .tasks import get_covid_data 
+from .tasks import get_covid_data
 from django.views.generic import UpdateView, ListView
 from django.views import View
 from .models import Data
@@ -84,7 +84,7 @@ def home(request):
     context = {
         'datas': Data.objects.all()
     }
-    return render(request, 'cov.html', context)
+    return render(request, 'cov-graph.html', context)
 
 class CovidUpdateView(View):
     def get(self, request, *args, **kwargs):
@@ -98,7 +98,7 @@ class CovidUpdateView(View):
 
 class HomeView(ListView):
     model = Data
-    template_name = 'cov.html'
+    template_name = 'cov-graph.html'
     context_object_name = 'datas'
 
 

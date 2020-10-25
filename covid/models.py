@@ -8,8 +8,8 @@ class Data(models.Model):
     deaths = models.IntegerField()
     today_new_deaths = models.IntegerField()
     today_new_confirmed = models.IntegerField()
+    confirmed = models.IntegerField(null=True)
+    recovered = models.IntegerField(null=True)
 
     def __str__(self):
         return str(self.date.strftime("%Y/%m/%d"))
-
-
