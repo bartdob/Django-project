@@ -76,8 +76,8 @@ def get_covid_data(): #------------------------------------------ONE DAY--------
     })
 
 
-@periodic_task(crontab(minute=0, hour='21'))
+@periodic_task(run_every=crontab(minute=0, hour='15,22'))
 def every_30_seconds():
     # print("Running periodic task!")
     get_covid_data()
-    # print("-----------------------------------COVID--------------------")
+    print("-----------------------------------COVID--------------------")
