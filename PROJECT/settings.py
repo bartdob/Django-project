@@ -166,3 +166,4 @@ AWS_S3_SIGNATURE_VERSION = 's3v4'
 django_on_heroku.settings(locals())
 # CELERY
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')
+print('-----CELERY URL--------', CELERY_BROKER_URL)
