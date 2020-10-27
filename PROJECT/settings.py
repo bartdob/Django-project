@@ -169,7 +169,7 @@ django_on_heroku.settings(locals())
 import pika
 
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')
-print('-----CELERY URL--------', CELERY_BROKER_URL)
+#print('-----CELERY URL--------', CELERY_BROKER_URL)
 connection = pika.BlockingConnection(pika.URLParameters(CELERY_BROKER_URL))
 
 #END CELERY------------------------------------------------------------------------------------------
