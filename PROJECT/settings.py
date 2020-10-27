@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'covid',
     'todo',
     'celery',
+    'djcelery',
 ]
 
 MIDDLEWARE = [
@@ -164,6 +165,11 @@ AWS_S3_REGION_NAME = 'eu-central-1' #change to your region
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 django_on_heroku.settings(locals())
-# CELERY
+# CELERY ------------------------------------------------------------------------------------------
+import pika
+
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')
 print('-----CELERY URL--------', CELERY_BROKER_URL)
+connection = pika.BlockingConnection(pika.URLParameters(CELERY_BROKER_URL))
+
+#END CELERY------------------------------------------------------------------------------------------
