@@ -76,8 +76,8 @@ def get_covid_data(): #------------------------------------------ONE DAY--------
     })
 
 
-#@periodic_task(run_every=(crontab(hour='*', minute='5')), acks_late=True, reject_on_worker_lost=True)
-@periodic_task(run_every=(timedelta(minutes=59)), acks_late=True, reject_on_worker_lost=True)
+@periodic_task(run_every=(crontab(hour=15, minute=1)), acks_late=True, reject_on_worker_lost=True)
+# @periodic_task(run_every=(timedelta(minutes=59)), acks_late=True, reject_on_worker_lost=True)
 def every_30_seconds():
     # print("Running periodic task!")
     get_covid_data()
