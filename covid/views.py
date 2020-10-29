@@ -82,7 +82,9 @@ def main_covid(request):
 
 def home(request):
     context = {
-        'datas': Data.objects.all()
+        'datas': Data.objects.all(),
+        'last': Data.objects.last()
+
     }
     return render(request, 'cov-graph.html', context)
 
