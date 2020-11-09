@@ -102,5 +102,6 @@ class HomeView(ListView):
     model = Data
     template_name = 'cov-graph.html'
     context_object_name = 'datas'
+    ordering = ("date")
 
 

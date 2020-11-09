@@ -25,7 +25,7 @@
             var myChart = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: [{% for data in datas %}'{{ data.date|date:"d/m" }}',{% endfor %}],
+                    labels: [{% for data in datas %}'{{ data.date|date:"d/m"}}',{% endfor %}],
                     datasets: [{
                         label: 'people',
                         data: [{% for data in datas %}{{ data.today_new_confirmed }},{% endfor %}],
