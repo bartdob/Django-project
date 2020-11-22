@@ -12,12 +12,17 @@
 </head>
 
 <body style="background-color: lightcyan">
+<div class="text-left">
+    <a class="text-dark" style="text-decoration: none;" href="{% url 'main-page' %}">Apps Page</a>
+    <a class="text-dark" style="text-decoration: none;" href="{% url 'covid' %}">Today Stats</a>
+</div>
   <div class="text-center">
     <h1>Covid Poland</h1>
+
   </div>
     <div class="row">
       <div class="container" style="width: 600px; float: left;">
-        <p class="text-center">today new confirmed: </p>
+        <p class="text-center">today new confirmed: {{ last.date }} </p>
         <canvas id="myChart" width="50" height="50">
           <script>
             $(document).ready(function(){

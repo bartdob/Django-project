@@ -34,6 +34,7 @@ urlpatterns = [
     path('newuser/', user_views.newuser, name='newuser'),
     path('covid/', include('covid.urls')),
     path('todo/', include('todo.urls')),
+    path('poll/', include('poll.urls')),
     path('', include('weather.urls')),
 
 

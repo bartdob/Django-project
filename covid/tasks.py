@@ -22,6 +22,7 @@ today_day = (today.strftime('%y-%m-%d'))
 
 @task
 def get_covid_data(): #------------------------------------------ONE DAY------------------------------------------------
+    today = datetime.today()
     today_str = datetime.today().strftime('%Y-%m-%d')
     urlP = 'https://api.covid19tracking.narrativa.com/api/%s/country/poland'%(today_str)
 

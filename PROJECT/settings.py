@@ -53,6 +53,8 @@ INSTALLED_APPS = [
     'todo',
     'celery',
     'djcelery',
+    'poll',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
