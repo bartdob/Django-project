@@ -25,10 +25,10 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{% url 'blog-home' %}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{% url 'main-page' %}">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">About</a>
+              <a class="nav-link" href="https://bdobrosielski.pl/">About</a>
             </li>
 
           </ul>
@@ -88,23 +88,32 @@
           </div>
         </div>
         <div class="text-center mt-5 mb-2 d-flex justify-content-around" id="main">
+            <div class="w-25 p-2 m-3" id="box">
+              <p>TODO</p>
+              <button class="btn btn-dark btn-lg">
+                  <div>
+                      <a class="text-light text-decoration-none" href="{% url 'todo' %}">START</a>
+                  </div>
+              </button>
+          </div>
           <div class="w-25 p-2 m-3" id="box">
-            <p>TODO</p>
+            <p>COVID GRAPH</p>
             <button class="btn btn-dark btn-lg">
                 <div>
-                    <a class="text-light text-decoration-none" href="{% url 'todo' %}">START</a>
+                    <a class="text-light text-decoration-none" href="{% url 'cov-graph' %}">START</a>
                 </div>
             </button>
-        </div>
-        <div class="w-25 p-2 m-3" id="box">
-          <p>COVID GRAPH</p>
-          <button class="btn btn-dark btn-lg">
-              <div>
-                  <a class="text-light text-decoration-none" href="{% url 'cov-graph' %}">START</a>
+            </div>
+            <div class="w-25 p-2 m-3" id="box">
+              <p>Export CSV</p>
+              <button class="btn btn-dark btn-lg">
+                  <div>
+                      <a class="text-light text-decoration-none" href="{% url 'export' %}">START</a>
+                  </div>
+              </button>
               </div>
-          </button>
-          </div>
-        </div>
+            </div>
+
         <h2>Python: </h2>
         <div class="text-center mt-2 mb-2 d-flex justify-content-around" id="main">
           <div class="w-25 p-2 m-3" id="box">
@@ -120,13 +129,6 @@
           <button class="btn btn-dark btn-lg">
               <div>
                   <a class="text-light text-decoration-none" href="https://bdobrosielski.com.pl/index2/projekty/greenH/gh.html">START</a>
-              </div>
-          </button>
-          </div>
-          <p>EXPORT CSV</p>
-          <button class="btn btn-dark btn-lg">
-              <div>
-                  <a class="text-light text-decoration-none" href="{% url 'export' %}">START</a>
               </div>
           </button>
           </div>
