@@ -2,12 +2,14 @@
     border: 1px solid black;
     padding-left: 5px;
     margin-left: 5px;
+    background-color: #99ffff;
 }
 
 #myChart1{
     border: 1px solid black;
     padding-left: 5px;
     margin-left: 5px;
+    background-color: white;
 }
 
 #myChart2{
@@ -20,4 +22,8 @@
     border: 1px solid black;
     padding-left: 5px;
     margin-left: 5px;
+}
+
+body{
+    background-color: #6666ff;
 }
