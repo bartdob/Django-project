@@ -1,9 +1,10 @@
 from django.db import models
 from django.utils import timezone
 
+
 class Data(models.Model):
-    title= models.CharField(max_length=30, null=True)
-    date = models.DateTimeField(default = timezone.now)
+    title = models.CharField(max_length=30, null=True)
+    date = models.DateTimeField(default=timezone.now)
     critical = models.IntegerField()
     deaths = models.IntegerField()
     today_new_deaths = models.IntegerField()

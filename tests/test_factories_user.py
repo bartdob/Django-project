@@ -1,0 +1,13 @@
+import pytest
+
+from django.contrib.auth.models import User
+
+
+@pytest.mark.django_db
+def test_new_user(user_factory):
+    user = user_factory.create()
+    count = User.objects.all().count()
+    print(count)
+    assert count == 1
+    print(user.username)
+    assert True

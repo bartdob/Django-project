@@ -19,20 +19,23 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
+DEBUG = os.environ.get('DEBUG_VALUE')
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('DJANGO_PROJECT_SECRET_KEY')
+if DEBUG:
+    SECRET_KEY = '8@0z_@#vymh4##d#fsu##h=cg0s_qc7#d&34tf^@e&n(vm%jv1'
+else:
+    SECRET_KEY = os.environ.get('DJANGO_PROJECT_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG_VALUE')
 print('debug val: ', DEBUG)
 
 ALLOWED_HOSTS = ['192.168.2.108',
-                'https://pythondjango-myapp.herokuapp.com/',
-                'pythondjango-myapp.herokuapp.com',
-                '127.0.0.1',
-                ]
-
+                 'https://pythondjango-myapp.herokuapp.com/',
+                 'pythondjango-myapp.herokuapp.com',
+                 '127.0.0.1',
+                 ]
 
 # Application definition
 
@@ -85,7 +88,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'PROJECT.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -95,7 +97,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -115,7 +116,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -128,7 +128,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
@@ -161,7 +160,7 @@ AWS_DEFAULT_ACL = None
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
-AWS_S3_REGION_NAME = 'eu-central-1' #change to your region
+AWS_S3_REGION_NAME = 'eu-central-1'  # change to your region
 AWS_S3_SIGNATURE_VERSION = 's3v4'
 
 django_on_heroku.settings(locals())
@@ -169,7 +168,7 @@ django_on_heroku.settings(locals())
 import pika
 
 CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL')
-#print('-----CELERY URL--------', CELERY_BROKER_URL)
-connection = pika.BlockingConnection(pika.URLParameters(CELERY_BROKER_URL))
+# print('-----CELERY URL--------', CELERY_BROKER_URL)
+# connection = pika.BlockingConnection(pika.URLParameters(CELERY_BROKER_URL))
 
-#END CELERY------------------------------------------------------------------------------------------
+# END CELERY------------------------------------------------------------------------------------------
