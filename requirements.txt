@@ -15,7 +15,7 @@ click-repl==0.1.6
 covid19dh==2.0.3
 COVID19Py==0.3.0
 cssselect==1.1.0
-dataclasses==0.7
+dataclasses
 dj-database-url==0.5.0
 Django==3.1
 django-bootstrap4==2.2.0
