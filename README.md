@@ -1,4 +1,4 @@
 # Django-project
-my python django page with apps
+my python django page with apps, like Covid - a automatic database, which collect data from page 
 
 [![Tests](https://github.com/bartdob/Django-project/actions/workflows/testing.yml/badge.svg?branch=actions)](https://github.com/bartdob/Django-project/actions/workflows/testing.yml)
