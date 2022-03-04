@@ -1,6 +1,5 @@
-from pytest_factoryboy import register
-from tests.factories import UserFactory
-from tests.factories import DataFactory
+from django.contrib.admin import register
+from tests.factories import UserFactory, DataFactory
 
 register(UserFactory)
 register(DataFactory)
