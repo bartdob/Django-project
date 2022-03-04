@@ -16,7 +16,7 @@ click==7.1.2
 click-didyoumean==0.0.3
 click-repl==0.1.6
 colorama==0.4.4
-coverage==6.3.2
+coverage==6
 covid19dh==2.0.3
 COVID19Py==0.3.0
 cssselect==1.1.0
