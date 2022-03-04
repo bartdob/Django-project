@@ -23,7 +23,7 @@ jobs:
       with:
         auth: ${{ secrets.GIST_SECRET }}
         gistID: 3de7c013a6bccafda7394b92d76875bc
-        filename: Django-project_coverage.json
+        filename: https://github.com/bartdob/Django-project_coverage.json
         label: coverage
         message: ${{ env.COVERAGE }}
         namedLogo: jest
