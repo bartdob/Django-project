@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'todo',
     'celery',
     'djcelery',
-    'users',
 
 ]
 
