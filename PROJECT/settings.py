@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 DEBUG = os.environ.get('DEBUG_VALUE')
-
+KEY = '8@0z_@#vymh4##d#fsu##h=cg0s_qc7#d&34tf^@e&n(vm%jv1'
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
-    SECRET_KEY = '8@0z_@#vymh4##d#fsu##h=cg0s_qc7#d&34tf^@e&n(vm%jv1'
+    SECRET_KEY = KEY
 else:
-    SECRET_KEY = os.environ.get('DJANGO_PROJECT_SECRET_KEY')
+    SECRET_KEY = os.environ.get('DJANGO_PROJECT_SECRET_KEY', )
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG_VALUE')
