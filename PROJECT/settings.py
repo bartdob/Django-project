@@ -25,7 +25,7 @@ KEY = '8@0z_@#vymh4##d#fsu##h=cg0s_qc7#d&34tf^@e&n(vm%jv1'
 if DEBUG:
     SECRET_KEY = KEY
 else:
-    SECRET_KEY = os.environ.get('DJANGO_PROJECT_SECRET_KEY', )
+    SECRET_KEY = os.environ.get('DJANGO_PROJECT_SECRET_KEY', KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG_VALUE')
