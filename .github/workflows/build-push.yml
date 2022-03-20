@@ -10,7 +10,6 @@ on:
 jobs:
 
   build:
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: ubuntu-latest
     
     steps:
@@ -21,7 +20,7 @@ jobs:
         id: docker_meta
         uses: crazy-max/ghaction-docker-meta@v1
         with:
-          images: ghcr.io/gbaeke/rgapi
+          images: ghcr.io/bartdob/django_app
           tag-sha: true
           tag-edge: false
           tag-latest: true
