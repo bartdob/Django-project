@@ -5,4 +5,6 @@ my python django page with apps, like Covid - a automatic database, which collec
 
 [comment]: <> (![Coverage Badge]&#40;https://img.shields.io/endpoint?url=https://gist.githubusercontent.com/bartdob/3de7c013a6bccafda7394b92d76875bc/raw/Django-project.json&#41;)
 
+[![Publish Docker Image](https://github.com/bartdob/Django-project/actions/workflows/build-push.yml/badge.svg)](https://github.com/bartdob/Django-project/actions/workflows/build-push.yml)
+
 
