@@ -33,6 +33,7 @@ print('debug val: ', DEBUG)
 
 ALLOWED_HOSTS = ['192.168.2.108',
                  'https://pythondjango-myapp.herokuapp.com/',
+                 'https://web-production-fcd6.up.railway.app/',
                  'pythondjango-myapp.herokuapp.com',
                  '127.0.0.1',
                  ]
