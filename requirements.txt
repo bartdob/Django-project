@@ -73,7 +73,7 @@ requests==2.27.1
 s3transfer==0.3.3
 six==1.16.0
 soupsieve==2.0.1
-sqlparse==0.3.1
+sqlparse==0.4.4
 toml
 tomli
 typed-ast==1.4.1
