@@ -9,7 +9,7 @@ billiard==3.3.0.23
 boto3==1.15.6
 botocore==1.18.6
 celery==3.1.25
-certifi==2021.10.8
+certifi==2023.7.22
 chardet==3.0.4
 charset-normalizer==2.0.12
 click==7.1.2
