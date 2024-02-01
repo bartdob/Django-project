@@ -8,7 +8,7 @@ beautifulsoup4==4.9.1
 billiard==3.3.0.23
 boto3==1.15.6
 botocore==1.18.6
-celery==3.1.25
+celery==4.4.0rc5
 certifi==2021.10.8
 chardet==3.0.4
 charset-normalizer==2.0.12
@@ -53,7 +53,7 @@ openpyxl==3.0.5
 packaging==21.3
 pandas==1.1.2
 pika==1.1.0
-Pillow==7.2.0
+Pillow==10.2.0
 pluggy==1.0.0
 prompt-toolkit==3.0.8
 psycopg2-binary==2.8.6
